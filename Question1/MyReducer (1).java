@@ -9,7 +9,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.Reducer.Context;
 
-public class MyReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
+public class PrimeReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
 
 	public void reduce(Text key, Iterable<IntWritable> values, Context context)
 			throws IOException, InterruptedException {
@@ -23,6 +23,6 @@ public class MyReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
 				sum += value.get();
 			}
 		}
-		context.write(key, new IntWritable(sum));
 	}
+		context.write(key, new IntWritable(sum));
 }
